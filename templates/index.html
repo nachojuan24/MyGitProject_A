@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title%} Home page {% endblock %}
+       
+{% block content %}
+
+<h1>
+    Welcomo to my very first website implemented with Flask
+</h1>
+
+{% if name %}
+<p>
+    {{name}} lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+    Amet distinctio et ipsa saepe tenetur maxime aliquam repellendus nemo porro, 
+    harum dolor dolore itaque cum neque corrupti quos autem iusto possimus!
+</p>
+{% else %}
+<p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+    Amet distinctio et ipsa saepe tenetur maxime aliquam repellendus nemo porro, 
+    harum dolor dolore itaque cum neque corrupti quos autem iusto possimus! 
+</p>
+{% endif %}
+
+<h2>
+    List of friends:
+</h2>
+<ul>
+    {% for friend in friends %}
+    <li>{{friend}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+

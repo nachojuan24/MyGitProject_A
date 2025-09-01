@@ -1,11 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
+from markupsafe import escape
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return '<h1> Hello World! </h1>'
+    name = 'Alex'
+    friends = ['Alice', 'Bob', 'Carl', 'Daniel']
+    return render_template('index.html', name=name, friends=friends)
 
 
 @app.route('/hello')
@@ -18,6 +21,11 @@ def hello(name = None, age=None):
         return f'<h2> Hello {name}! </h2>'
     else:
         return f'<h2> Hello {name}! Two times your age is {age*2}, right? </h2>'
+
+
+@app.route('/code/<path:code>')
+def code(code):
+    return f'<code>{escape(code)}</code>'
 
 
 if __name__ == '__main__':
