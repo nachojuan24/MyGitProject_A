@@ -6,6 +6,12 @@
         </title>
     </head>
     <body>
+        <nav>
+            <li><a href="{{ url_for('index') }}"> Home Page </a></li>
+            <li><a href="{{ url_for('hello') }}"> Hello </a></li>
+            <li><a href="{{ url_for('code', code = 'print(code)') }}"> Code </a></li>
+        </nav>
+
         {% block content %}
         <!-- Block of content -->
         {% endblock %}

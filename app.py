@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from markupsafe import escape
 from datetime import datetime
 
@@ -20,6 +20,10 @@ def repeat(s, n):
 
 @app.route('/')
 def index():
+    print(url_for('index'))
+    print(url_for('hello', name='Alex', age=27))
+    print(url_for('code', code = 'print("Hola")'))
+
     name = 'Alex'
     friends = ['Alice', 'Bob', 'Carl', 'Daniel']
     date = datetime.now()
