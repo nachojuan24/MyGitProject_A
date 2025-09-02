@@ -1,6 +1,8 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from markupsafe import escape
 from datetime import datetime
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
 
 app = Flask(__name__)
 
@@ -52,6 +54,21 @@ def hello(name = None, age=None, email=None):
 @app.route('/code/<path:code>')
 def code(code):
     return f'<code>{escape(code)}</code>'
+
+# Register user
+@app.route('/auth/register', methods = ['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        if len(username) >= 4 and len(username) <= 25 and len(password) >= 6 and len(password)<=40:
+            return f"Username: {username}, Password: {password}"
+        else:
+            error = """The username must have between 4 and 25 characters. 
+            The password must also have between 6 and 40 characters."""
+            return render_template('auth/register.html', error = error)
+    return render_template('auth/register.html')
 
 
 if __name__ == '__main__':
