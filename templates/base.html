@@ -4,7 +4,11 @@
         <title>
             My own website - {% block title%}{% endblock %}
         </title>
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <!-- <link rel="stylesheet" href="static\css\style.css"> -->
     </head>
+
     <body>
         <nav>
             <li><a href="{{ url_for('index') }}"> Home Page </a></li>
@@ -15,6 +19,9 @@
         {% block content %}
         <!-- Block of content -->
         {% endblock %}
-    </body>
+    
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    </body>  
 
 </html>

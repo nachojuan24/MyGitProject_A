@@ -20,9 +20,10 @@ def repeat(s, n):
 
 @app.route('/')
 def index():
-    print(url_for('index'))
-    print(url_for('hello', name='Alex', age=27))
-    print(url_for('code', code = 'print("Hola")'))
+    
+    # print(url_for('index'))
+    # print(url_for('hello', name='Alex', age=27))
+    # print(url_for('code', code = 'print("Hola")'))
 
     name = 'Alex'
     friends = ['Alice', 'Bob', 'Carl', 'Daniel']
