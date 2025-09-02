@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title%} Hello Page {% endblock %}
+
+{% block content %}
+    {% if data.name is none and data.age is none %}
+        <h2> Hello world! </h2>
+    {% elif data.age is none %}
+        <h2> Hello {{data.name}}! </h2>
+    {% elif data.email is none %}
+        <h2> Hello {{data.name}}! Two times your age is {{data.age*2}}, right? </h2>
+    {% else %}
+    <h2> My data:</h2>
+    <ul>
+        <li> Name: {{data.name}} </li>
+        <li> Age: {{data.age}} </li>
+        <li> Email: {{data.email}} </li>
+    </ul>
+
+    {%endif%}
+{% endblock %}
